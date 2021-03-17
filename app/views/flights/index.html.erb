@@ -1,0 +1,47 @@
+<div class="columns">
+  <div class="column box is-4 is-offset-4 mt-5">
+    <%= form_with url: "/flights", method: :get do |f| %>
+      <div class="field">
+        <%= f.label :from_airport, "From:", class: "label"%>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <%= f.collection_select :from_airport, Airport.all, :id, :code%>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :to_airport, "To:", class: "label"%>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <%= f.collection_select :to_airport, Airport.all, :id, :code%>
+          </div>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="field mt-2 mr-2">
+          <%= f.label :number_tickets,"Number of passengers:", class: "label"%>
+        </div>
+        <div class="control">
+          <div class="select">
+            <%= f.select :number_tickets, [1,2,3,4]%>
+          </div>
+        </div>
+      </div>
+      
+      <div class="field is-grouped">
+        <div class="field mt-2 mr-4">
+          <%= f.label :departure_date,"Departure date:", class: "label"%>
+        </div>
+        <div class="control">
+          <div class="select">
+            <%= f.collection_select :departure_date, Flight.get_departure_dates, :first, :first%>
+          </div>
+        </div>
+        
+        <div class="control">
+          <%= f.submit "Search", class:"button is-success"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

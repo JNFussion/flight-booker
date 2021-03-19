@@ -1,0 +1,53 @@
+ <article class="media box">
+  <div class="media-left  is-flex is-align-self-center">
+    <span class="icon is-large">
+      <i class="fas fa-plane fa-2x"></i>
+    </span>
+  </div>
+      <div class="media-content">
+        <div class="columns is-gapless">
+          <div class="column">
+            <div id="flight-border" class="columns">
+              <div class="column is-flex is-justify-content-flex-start"><strong>From:</strong></div>
+              <div class="column is-flex is-justify-content-flex-start"><strong>To:</strong></div>
+            </div>
+            <div class="columns">
+              <div class="column is-flex is-justify-content-flex-end">
+                <%= flight.from_airport.code%>
+              </div>
+              <div class="column is-flex is-justify-content-flex-end">
+                <%= flight.to_airport.code%>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns">
+              <div class="column"><strong>Departure:</strong></div>
+              <div class="column"><strong>Arriving:</strong></div>
+            </div>
+            <div class="columns">
+              <div class="column is-flex is-justify-content-flex-end">
+                <%= flight.departure_date.strftime("%H:%M") %>
+              </div>
+              <div class="column is-flex is-justify-content-flex-end">
+                <%= flight.get_arrival_time.strftime("%H:%M")%>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns">
+              <div class="column"><strong>Duration:</strong></div>
+            </div>
+            <div class="columns">
+              <div class="column is-flex is-justify-content-flex-end">
+                <%= flight.duration_interval.inspect %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="media-right is-flex is-align-self-center">
+        <%= f.radio_button :flight_id, flight.id%>
+      </div>
+</article>

@@ -18,4 +18,5 @@ Flight.create([{from_airport_id: 1, to_airport_id: 10, departure_date: DateTime.
   {from_airport_id: 6, to_airport_id: 10, departure_date: DateTime.new(2021, 6, 1, 6, 40), duration: 9480},
   {from_airport_id: 10, to_airport_id: 6, departure_date: DateTime.new(2021, 7, 31, 20, 30), duration: 8460},
   {from_airport_id: 9, to_airport_id: 7, departure_date: DateTime.new(2021, 3, 23, 16, 10), duration: 5100},
-  {from_airport_id: 7, to_airport_id: 9, departure_date: DateTime.new(2021, 4, 14, 6, 15), duration: 4500}])
+  {from_airport_id: 7, to_airport_id: 9, departure_date: DateTime.new(2021, 4, 14, 6, 15), duration: 4500},
+  {from_airport_id: 1, to_airport_id: 10, departure_date: DateTime.new(2021, 5, 6, 8, 10), duration: 9240}])

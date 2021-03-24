@@ -17,3 +17,7 @@
 $body-background-color: hsl(0, 0%, 97%);
 
 @import 'bulma';
+
+.notification:not(:last-child){
+  margin-bottom: 0;
+}

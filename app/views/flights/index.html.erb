@@ -1,20 +1,22 @@
 <div class="columns">
   <%= render "search_form"%>
 </div>
+<div class="column is-offset-3">
+  <h2 class="title">Flights:</h2>
+</div>
 
-<% if @flights.any? %>
   <div class="columns">
+  
     <div class="column is-half is-offset-3 box mt-5">
-      <%= form_with url: "booking/new", method: :get do |f|%>
-        <%= render @flights, {f: f}%>
-        <%= f.submit "Book", class:"button is-success"%>
-      <% end %>
-      
+        <% if @flights.any? %>
+          <%= render @flights%>
+        <% else %>
+          <div class="column is-offset-one-third">
+            <strong>There is no flight with this settings </strong>
+          </div>
+          
+        <% end %>
     </div>
   </div>
-<% end %>
-
-
-
 
 

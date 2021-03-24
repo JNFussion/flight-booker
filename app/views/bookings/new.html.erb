@@ -1,0 +1,44 @@
+<div class="container mt-1">
+  <h2 class="title">Your flight summary:</h2>
+  <%= render "flights/show_flight", flight: @flight%>
+  <div class="box">
+    Your flight is on <strong><%= @flight.departure_date.strftime('%a, %d/%m/%Y') %></strong> 
+  </div>
+</div>
+
+<div class="container mt-6">
+  <h2 class="title">Booking:</h2>
+  
+  <div class= "box has-background-white-bis">
+    <%= form_with model: @booking do |f|%>
+      <%= f.hidden_field :flight_id, value: @flight.id%>
+      <% num_passengers = 1%>
+      <div class="columns">
+        <%= f.fields_for :passengers do |passengers_form|%>
+          <div class="column box m-1">
+            <div class= "title is-5">
+              <%=num_passengers%>º Passenger:
+            </div>
+            <div class="field">
+              <%= passengers_form.label :name, class: "label"%>
+              <div class="control">
+                <%= passengers_form.text_field :name, placeholder: "John", class: "input"%>
+              </div>
+            </div>
+            <div class="field">
+              <%= passengers_form.label :email, class: "label"%>
+              <div class="control">
+                <%= passengers_form.text_field :email, placeholder: "example@email.com", class: "input"%>
+              </div>
+            </div>
+            <% num_passengers += 1%>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="field is-grouped is-grouped-right">
+        <%= f.submit "Check out", class: "button is-success"%>
+      </div>
+    <% end %>
+  </div>
+</div>

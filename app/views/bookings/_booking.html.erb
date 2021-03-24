@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="title">Booking Info:</h2>
+  <div class="columns box">
+    <%= render @booking.passengers%>
+  </div>
+  <h2 class="title">Flight summary:</h2>
+  <div class="box">
+    Your flight is on <strong><%= @booking.flight.departure_date.strftime('%a, %d/%m/%Y') %></strong> 
+  </div>
+  <%= render "flights/show_flight", flight: @booking.flight%>
+</div>
